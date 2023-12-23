@@ -32,7 +32,8 @@ ssid = ""
 
 def log():
     network_name=entry1.get()
-    
+    slidevalue = slider.get()
+
     result = subprocess.run(['netsh', 'wlan', 'show', 'profile', network_name, 'key=clear'], stdout=subprocess.PIPE)
     output = result.stdout.decode()
 
@@ -59,7 +60,7 @@ def log():
     qrs = qrcode.QRCode(
        version=1,
        error_correction=qrcode.constants.ERROR_CORRECT_L,
-       box_size=45,
+       box_size=slidevalue,
        border=4,
     )
     qrs.add_data(qrtu)
@@ -118,6 +119,17 @@ button.pack(pady=12,padx=10)
 
 check = customtkinter.CTkCheckBox(master=frame,text="Print QR")
 check.pack(pady=12,padx=10)
+
+label1 = customtkinter.CTkLabel(master=frame, text="Quality")
+label1.pack(pady=0,padx=10)
+
+slider = customtkinter.CTkSlider(master=frame,from_=10,to=50)
+slider.pack(pady=12,padx=10)
+
+
+
+
+
 
 
 
