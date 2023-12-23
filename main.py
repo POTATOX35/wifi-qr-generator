@@ -18,7 +18,7 @@ customtkinter.set_default_color_theme("dark-blue")
 
 rot = customtkinter.CTk()
 rot.geometry("500x350")
-rot.title("WIFI QR Oluşturucu by Potatox")
+rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 
 
@@ -49,7 +49,7 @@ def log():
     root.withdraw() #use to hide tkinter window
 
     currdir = os.getcwd()
-    tempdir = filedialog.askdirectory(parent=root, initialdir=currdir, title='Konumu seçin')
+    tempdir = filedialog.askdirectory(parent=root, initialdir=currdir, title='Choose save path')
     tempdir += "/qrwifi.png"
 
     esek="WIFI:S:SSID_NAME;H:true;T:WPA2;P:PASSWORD;;"
@@ -73,8 +73,8 @@ def log():
     width, height = img.size 
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype(r'fonts.otf', ((width/100)*6))
-    text = ("WIFI Adı: " + str(ssid))
-    texts = ("Şifre: " + str(password))
+    text = ("WIFI Name: " + str(ssid))
+    texts = ("Password: " + str(password))
     textwidth = draw.textlength(text, font=font)
     textwidths = draw.textlength(texts, font=font)
 
@@ -92,11 +92,11 @@ def log():
     
     
     
-    print("Wifi QR kodunuz başarıyla kaydedilmiştir")
+  
     toast = ToastNotifier()
     toast.show_toast(
-       "Wifi QR Oluşturucu",
-       "Wifi QR kodunuz başarıyla kaydedilmiştir",
+       "Wifi QR Generator",
+       "Your QR code has saved sucessfully !",
        duration = 5,
        threaded = False,
        icon_path='favicon.ico'
@@ -107,16 +107,16 @@ def log():
 frame = customtkinter.CTkFrame(master=rot)
 frame.pack(pady=20, padx=60, fill="both", expand=True)
 
-label = customtkinter.CTkLabel(master=frame, text="WIFI QR Oluşturucu")
+label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
 
-entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Adı :")
+entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
 entry1.pack(pady=12,padx=10)
 
-button = customtkinter.CTkButton(master=frame, text="Oluştur", command=log)
+button = customtkinter.CTkButton(master=frame, text="Generate", command=log)
 button.pack(pady=12,padx=10)
 
-check = customtkinter.CTkCheckBox(master=frame,text="QR Yazdır")
+check = customtkinter.CTkCheckBox(master=frame,text="Print QR")
 check.pack(pady=12,padx=10)
 
 
