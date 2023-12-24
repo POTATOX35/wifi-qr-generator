@@ -20,7 +20,7 @@ You can generate your wifi QR code without any internet connection. Just type wi
 
 Example output file:
 
-![Output](https://i.ibb.co/yYycDT0/potttt.png)
+![Output](https://i.ibb.co/Y881PmK/potttt.png)
 
 
   
