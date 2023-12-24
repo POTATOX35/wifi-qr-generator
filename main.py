@@ -13,27 +13,31 @@ import tkinter
 import customtkinter
 
 customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("dark-blue")
+customtkinter.set_default_color_theme("blue")
 
 
 rot = customtkinter.CTk()
-rot.geometry("500x350")
+rot.geometry("350x400")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 
 
 network_name = ("Wifi adını yazın: ")
-
+my_text = "Your QR image has saved successfully !"
 
 password = ""
 ssid = ""
+file_name = ""
+file_name_path = "/"
 
 
 
 def log():
     network_name=entry1.get()
     slidevalue = slider.get()
-
+    file_name = entry2.get()
+    file_name += ".png"
+    print(file_name)
     result = subprocess.run(['netsh', 'wlan', 'show', 'profile', network_name, 'key=clear'], stdout=subprocess.PIPE)
     output = result.stdout.decode()
 
@@ -51,7 +55,8 @@ def log():
 
     currdir = os.getcwd()
     tempdir = filedialog.askdirectory(parent=root, initialdir=currdir, title='Choose save path')
-    tempdir += "/qrwifi.png"
+    tempdir += "/"
+    tempdir += file_name
 
     esek="WIFI:S:SSID_NAME;H:true;T:WPA2;P:PASSWORD;;"
     qr =esek.replace("SSID_NAME", str(ssid))
@@ -88,31 +93,49 @@ def log():
     draw.text((x, y), text, font=font, fill='black')
     draw.text((xx, yy), texts, font=font, fill='black')
     img.save(tempdir)
+    a = str(tempdir)
+    s = "/"
+    s += file_name
+    e = a.replace(s,'')
+   
+    eks = e.replace('/', '\\')
+    
+    ek=r"C:\Users\Potatox\Desktop\Qr Generator\qrwifi.png"
+    label1s.configure(text=my_text)
+    print(eks)
+    subprocess.run(['explorer', eks], check=False)
+    
     
     
     
     
     
   
-    toast = ToastNotifier()
-    toast.show_toast(
-       "Wifi QR Generator",
-       "Your QR code has saved sucessfully !",
-       duration = 5,
-       threaded = False,
-       icon_path='favicon.ico'
-    )
+   
     if check.get() == True:
       os.startfile(tempdir, "print")
     rot.mainloop()  
+
+
+
+
 frame = customtkinter.CTkFrame(master=rot)
-frame.pack(pady=20, padx=60, fill="both", expand=True)
+frame.pack(pady=20, padx=40, fill="both", expand=True)
+
+
+
+  
+# Show image using label 
+
 
 label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
 
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
 entry1.pack(pady=12,padx=10)
+
+entry2 = customtkinter.CTkEntry(master=frame, placeholder_text="Save file name:")
+entry2.pack(pady=12,padx=10)
 
 button = customtkinter.CTkButton(master=frame, text="Generate", command=log)
 button.pack(pady=12,padx=10)
@@ -123,17 +146,12 @@ check.pack(pady=12,padx=10)
 label1 = customtkinter.CTkLabel(master=frame, text="Quality")
 label1.pack(pady=0,padx=10)
 
-slider = customtkinter.CTkSlider(master=frame,from_=10,to=50)
+
+slider = customtkinter.CTkSlider(master=frame,from_=10,to=100)
 slider.pack(pady=12,padx=10)
 
-
-
-
-
-
-
-
-
+label1s = customtkinter.CTkLabel(master=frame, text="",text_color="green")
+label1s.pack(pady=0,padx=10)
 
 
 rot.mainloop()
