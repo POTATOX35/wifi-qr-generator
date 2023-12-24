@@ -13,4 +13,14 @@ You can generate your wifi QR code without any internet connection. Just type wi
 - Its totally free to use
 
 
+
+
+  
+![In app image](https://i.ibb.co/pjTX9RW/o.png)
+
+Example output file:
+
+![Output](https://i.ibb.co/yYycDT0/potttt.png)
+
+
   
