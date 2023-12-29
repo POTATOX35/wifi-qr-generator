@@ -101,13 +101,18 @@ def log():
     width, height = img.size 
     draw = ImageDraw.Draw(img)
     font_family = 'fonts.otf'
-   
-    font = ImageFont.truetype(r'fonts.otf', ((width/100)*6))
+    
     text = ("WIFI Name: " + str(ssid))
     texts = ("Password: " + str(password))
-  
+    a = 150/len(text)
+    asak = 150/len(texts)
+
+
+    font = ImageFont.truetype(r'fonts.otf', ((width/100)*a))
+    fonts = ImageFont.truetype(r'fonts.otf', ((width/100)*asak))
+    
     textwidth = draw.textlength(text, font=font)
-    textwidths = draw.textlength(texts, font=font)
+    textwidths = draw.textlength(texts, font=fonts)
 
     x=width/2-textwidth/2
     xx=width/2-textwidths/2
@@ -116,7 +121,7 @@ def log():
     
 
     draw.text((x, y), text, font=font, fill='black')
-    draw.text((xx, yy), texts, font=font, fill='black')
+    draw.text((xx, yy), texts, font=fonts, fill='black')
     img.save(tempdir)
     a = str(tempdir)
     s = "/fdsdf.png"
@@ -142,17 +147,7 @@ def log():
       subprocess.run(['explorer', eks], check=False)
     rot.mainloop()  
 
-def find_font_size(text, font, image, target_width_ratio):
-    tested_font_size = 100
-    tested_font = ImageFont.truetype(font, tested_font_size)
-    observed_width, observed_height = get_text_size(text, image, tested_font)
-    estimated_font_size = tested_font_size / (observed_width / image.width) * target_width_ratio
-    return round(estimated_font_size)
 
-def get_text_size(text, image, font):
-    im = Image.new('RGB', (image.width, image.height))
-    draw = ImageDraw.Draw(im)
-    return draw.textsize(text, font)
 
 
 frame = customtkinter.CTkFrame(master=rot)
