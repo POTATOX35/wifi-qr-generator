@@ -38,8 +38,11 @@ def log():
     
     
     print(file_name)
+   
+   
     result = subprocess.run(['netsh', 'wlan', 'show', 'profile', network_name, 'key=clear'], stdout=subprocess.PIPE)
     output = result.stdout.decode()
+    print(result)
 
     for line in output.split('\n'):
        if "Key Content" in line:
