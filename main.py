@@ -120,8 +120,9 @@ def log():
 
 
 frame = customtkinter.CTkFrame(master=rot)
-frame.pack(pady=20, padx=40, fill="both", expand=True)
-
+frame.pack(pady=20, padx=40, fill="both", expand=True, justify = "rigth")
+frame1 = customtkinter.CTkFrame(master=rot)
+frame1.pack(pady=20, padx=40, fill="both", expand=True, justify = "left")
 
 
   
