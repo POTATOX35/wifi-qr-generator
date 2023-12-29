@@ -17,7 +17,7 @@ customtkinter.set_default_color_theme("blue")
 
 
 rot = customtkinter.CTk()
-rot.geometry("350x400")
+rot.geometry("600x400")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 
@@ -122,7 +122,7 @@ def log():
 frame = customtkinter.CTkFrame(master=rot)
 frame.pack(pady=20, padx=20, fill="both", expand=True,side="left")
 frame1 = customtkinter.CTkFrame(master=rot)
-frame1.pack(pady=20, padx=0, fill="both", expand=True,side="right")
+frame1.pack(pady=20, padx=20, fill="both", expand=True,side="right")
 
 
   
