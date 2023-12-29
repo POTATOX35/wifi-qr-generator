@@ -120,16 +120,16 @@ def log():
 
 
 frame = customtkinter.CTkFrame(master=rot)
-frame.pack(pady=20, padx=40, fill="both", expand=True, justify = "right")
+frame.pack(pady=20, padx=40, fill="both", expand=True,side="left")
 frame1 = customtkinter.CTkFrame(master=rot)
-frame1.pack(pady=20, padx=40, fill="both", expand=True, justify = "left")
+frame1.pack(pady=20, padx=40, fill="both", expand=True,side="right")
 
 
   
 # Show image using label 
 
 
-label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator", justify ="left")
+label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
 
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
