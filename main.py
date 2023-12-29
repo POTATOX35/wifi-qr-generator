@@ -35,8 +35,8 @@ file_name_path = "/"
 def log():
     network_name=entry1.get()
     slidevalue = slider.get()
-    file_name = entry2.get()
-    file_name += ".png"
+    
+    
     print(file_name)
     result = subprocess.run(['netsh', 'wlan', 'show', 'profile', network_name, 'key=clear'], stdout=subprocess.PIPE)
     output = result.stdout.decode()
@@ -54,10 +54,8 @@ def log():
     root.withdraw() #use to hide tkinter window
 
     currdir = os.getcwd()
-    tempdir = filedialog.askdirectory(parent=root, initialdir=currdir, title='Choose save path')
-    tempdir += "/"
-    tempdir += file_name
-
+    tempdir = filedialog.asksaveasfilename(parent=root, initialdir=currdir, title='Choose save path',defaultextension=".png",filetypes=(("PNG", "*.png"),("All Files", "*.*") ))
+    
     esek="WIFI:S:SSID_NAME;H:true;T:WPA2;P:PASSWORD;;"
     qr =esek.replace("SSID_NAME", str(ssid))
     qrtu=qr.replace("PASSWORD", str(password))
@@ -94,8 +92,8 @@ def log():
     draw.text((xx, yy), texts, font=font, fill='black')
     img.save(tempdir)
     a = str(tempdir)
-    s = "/"
-    s += file_name
+    s = "/fdsdf.png"
+
     e = a.replace(s,'')
     esss = Image.open(tempdir)
     eks = e.replace('/', '\\')
@@ -103,7 +101,7 @@ def log():
     ek=r"C:\Users\Potatox\Desktop\Qr Generator\qrwifi.png"
     label1s.configure(text=my_text)
     print(eks)
-    subprocess.run(['explorer', eks], check=False)
+    
  
     
     
@@ -113,6 +111,8 @@ def log():
    
     if check.get() == True:
       os.startfile(tempdir, "print")
+    if check1.get() == True:
+      subprocess.run(['explorer', eks], check=False)
     rot.mainloop()  
 
 
@@ -133,14 +133,16 @@ label.pack(pady=12,padx=10)
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
 entry1.pack(pady=12,padx=10)
 
-entry2 = customtkinter.CTkEntry(master=frame, placeholder_text="Save file name:")
-entry2.pack(pady=12,padx=10)
+
 
 button = customtkinter.CTkButton(master=frame, text="Generate", command=log)
 button.pack(pady=12,padx=10)
 
 check = customtkinter.CTkCheckBox(master=frame,text="Print QR")
 check.pack(pady=12,padx=10)
+check1 = customtkinter.CTkCheckBox(master=frame,text="Show QR Image")
+check1.pack(pady=12,padx=10)
+
 
 label1 = customtkinter.CTkLabel(master=frame, text="Quality")
 label1.pack(pady=0,padx=10)
