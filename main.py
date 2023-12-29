@@ -97,14 +97,14 @@ def log():
     s = "/"
     s += file_name
     e = a.replace(s,'')
-   
+    esss = Image.open(tempdir)
     eks = e.replace('/', '\\')
     
     ek=r"C:\Users\Potatox\Desktop\Qr Generator\qrwifi.png"
     label1s.configure(text=my_text)
     print(eks)
     subprocess.run(['explorer', eks], check=False)
-    labelss.configure(image=img)
+    labelss.configure(image=esss)
     
     
     
