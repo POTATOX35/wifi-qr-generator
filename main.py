@@ -104,8 +104,7 @@ def log():
     label1s.configure(text=my_text)
     print(eks)
     subprocess.run(['explorer', eks], check=False)
-    labelss.configure(image=esss)
-    
+ 
     
     
     
@@ -120,9 +119,7 @@ def log():
 
 
 frame = customtkinter.CTkFrame(master=rot)
-frame.pack(pady=20, padx=20, fill="both", expand=True,side="left")
-frame1 = customtkinter.CTkFrame(master=rot)
-frame1.pack(pady=20, padx=20, fill="both", expand=True,side="right")
+frame.pack(pady=20, padx=20, fill="both", expand=True)
 
 
   
@@ -132,8 +129,6 @@ frame1.pack(pady=20, padx=20, fill="both", expand=True,side="right")
 label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
 
-labelss = customtkinter.CTkLabel(master=frame1, text="Output:",image="")
-labelss.pack(pady=12,padx=10)
 
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
 entry1.pack(pady=12,padx=10)
