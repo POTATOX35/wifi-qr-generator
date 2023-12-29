@@ -26,6 +26,7 @@ network_name = ("Wifi adını yazın: ")
 my_text = "Your QR image has saved successfully !"
 
 password = ""
+passwordss = ""
 ssid = ""
 file_name = ""
 file_name_path = "/"
@@ -40,7 +41,19 @@ def log():
     print(file_name)
    
    
-    result = subprocess.run(['netsh', 'wlan', 'show', 'profile', network_name, 'key=clear'], stdout=subprocess.PIPE)
+
+
+    resultss = subprocess.run(['netsh', 'wlan', 'show', 'interface', 'key=clear'], stdout=subprocess.PIPE)
+    outputsads = resultss.stdout.decode()
+
+
+    for line in outputsads.split('\r\n'):
+         if "Profile" in line:
+    
+            passwordss = line.split(":")[1].strip()
+    
+   
+    result = subprocess.run(['netsh', 'wlan', 'show', 'profile', passwordss, 'key=clear'], stdout=subprocess.PIPE)
     output = result.stdout.decode()
     print(result)
 
