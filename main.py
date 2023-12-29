@@ -12,8 +12,16 @@ import packaging
 import tkinter
 import customtkinter
 
+
+
 customtkinter.set_appearance_mode("light")
 customtkinter.set_default_color_theme("green")
+
+
+
+
+
+
 
 
 rot = customtkinter.CTk()
@@ -21,6 +29,7 @@ rot.geometry("350x400")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
+
 
 network_name = ("Wifi adını yazın: ")
 my_text = "Your QR image has saved successfully !"
