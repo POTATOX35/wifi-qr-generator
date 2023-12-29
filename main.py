@@ -128,7 +128,7 @@ frame.pack(pady=20, padx=40, fill="both", expand=True)
 # Show image using label 
 
 
-label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
+label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator", justify ="left")
 label.pack(pady=12,padx=10)
 
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
