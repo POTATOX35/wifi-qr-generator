@@ -34,7 +34,7 @@ file_name_path = "/"
 
 
 def log():
-    network_name=entry1.get()
+    
     slidevalue = slider.get()
     
     
@@ -55,8 +55,7 @@ def log():
    
     result = subprocess.run(['netsh', 'wlan', 'show', 'profile', passwordss, 'key=clear'], stdout=subprocess.PIPE)
     output = result.stdout.decode()
-    print(result)
-
+   
     for line in output.split('\n'):
        if "Key Content" in line:
         password = line.split(":")[1].strip()
@@ -102,7 +101,7 @@ def log():
     xx=width/2-textwidths/2
     y = 0+((width/100)*3)
     yy=width - ((width/100)*7)
-    print(draw.textlength(text, font=font))
+    
 
     draw.text((x, y), text, font=font, fill='black')
     draw.text((xx, yy), texts, font=font, fill='black')
@@ -116,7 +115,7 @@ def log():
     
     ek=r"C:\Users\Potatox\Desktop\Qr Generator\qrwifi.png"
     label1s.configure(text=my_text)
-    print(eks)
+    
     
  
     
@@ -144,12 +143,6 @@ frame.pack(pady=20, padx=20, fill="both", expand=True)
 
 label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
-
-
-entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
-entry1.pack(pady=12,padx=10)
-
-
 
 button = customtkinter.CTkButton(master=frame, text="Generate", command=log)
 button.pack(pady=12,padx=10)
