@@ -17,7 +17,7 @@ customtkinter.set_default_color_theme("blue")
 
 
 rot = customtkinter.CTk()
-rot.geometry("600x400")
+rot.geometry("800x400")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 
@@ -104,7 +104,7 @@ def log():
     label1s.configure(text=my_text)
     print(eks)
     subprocess.run(['explorer', eks], check=False)
-    
+    labelss.configure(image=img)
     
     
     
@@ -132,7 +132,7 @@ frame1.pack(pady=20, padx=20, fill="both", expand=True,side="right")
 label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
 
-labelss = customtkinter.CTkLabel(master=frame1, text="Output:")
+labelss = customtkinter.CTkLabel(master=frame1, text="Output:",image="")
 labelss.pack(pady=12,padx=10)
 
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
