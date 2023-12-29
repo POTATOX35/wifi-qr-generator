@@ -1,7 +1,7 @@
 
 # WIFI QR Generator
 
-You can generate your wifi QR code without any internet connection. Just type wifi name and click the button. Your QR code is ready !
+Just click the button. Your QR code is ready !
 
 
 
@@ -22,5 +22,10 @@ Example output file:
 
 ![Output](https://i.ibb.co/Y881PmK/potttt.png)
 
+## Change Log
+
+# v0.85
+- Text scale bug fixed
+- Now you must'nt type wifi name. Its detecting auto your wifi connected
 
   
