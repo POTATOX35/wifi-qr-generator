@@ -139,9 +139,9 @@ button = customtkinter.CTkButton(master=frame, text="Generate", command=log)
 button.pack(pady=12,padx=10)
 
 check = customtkinter.CTkCheckBox(master=frame,text="Print QR")
-check.pack(pady=12,padx=10)
+check.pack(pady=6,padx=10)
 check1 = customtkinter.CTkCheckBox(master=frame,text="Show QR Image")
-check1.pack(pady=12,padx=10)
+check1.pack(pady=6,padx=10)
 
 
 label1 = customtkinter.CTkLabel(master=frame, text="Quality")
