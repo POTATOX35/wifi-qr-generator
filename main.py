@@ -132,6 +132,9 @@ frame1.pack(pady=20, padx=20, fill="both", expand=True,side="right")
 label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
 label.pack(pady=12,padx=10)
 
+labelss = customtkinter.CTkLabel(master=frame1, text="Output:")
+labelss.pack(pady=12,padx=10)
+
 entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="WIFI Name :")
 entry1.pack(pady=12,padx=10)
 
