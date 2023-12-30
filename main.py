@@ -31,6 +31,12 @@ rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
 
+
+def close():
+   rot.destroy()
+
+rot.protocol("WM_DELETE_WINDOW", close)
+
 fontssss = customtkinter.CTkFont(family='ubuntu-medium.ttf', size=16)
 language = locale.getdefaultlocale()[0]
 
