@@ -5,6 +5,7 @@ from win10toast import ToastNotifier
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import *
+from customtkinter import *
 import os
 import time
 from PIL import Image, ImageFont, ImageDraw 
@@ -12,7 +13,6 @@ import packaging
 import tkinter
 import customtkinter
 import locale
-
 
 
 customtkinter.set_appearance_mode("light")
@@ -31,9 +31,10 @@ rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
 
+fontssss = customtkinter.CTkFont(family='ubuntu-medium.ttf', size=16)
 language = locale.getdefaultlocale()[0]
 
-
+my_img = CTkImage(dark_image=Image.open("example.png"),size=(250,250))
 
 
 network_name = ("Wifi adını yazın: ")
@@ -129,18 +130,19 @@ def log():
 
     draw.text((x, y), text, font=font, fill='black')
     draw.text((xx, yy), texts, font=fonts, fill='black')
+   
     img.save(tempdir)
     a = str(tempdir)
     s = "/fdsdf.png"
-
+   
     e = a.replace(s,'')
     esss = Image.open(tempdir)
     eks = e.replace('/', '\\')
     
-    ek=r"C:\Users\Potatox\Desktop\Qr Generator\qrwifi.png"
+    
     label1s.configure(text=my_text)
     
-    
+  
  
     
     
@@ -151,7 +153,14 @@ def log():
     if check.get() == True:
       os.startfile(tempdir, "print")
     if check1.get() == True:
-      subprocess.run(['explorer', eks], check=False)
+      my_img=CTkImage(dark_image=Image.open(tempdir),size=(250,250))
+      label1sss.configure(image=my_img)
+      label1sss.pack_configure(side="bottom")
+      rot.geometry("300x600")
+    else:
+      label1sss.configure(image="")   
+      rot.geometry("300x300")
+    
     rot.mainloop()  
 
 
@@ -165,27 +174,30 @@ frame.pack(pady=20, padx=20, fill="both", expand=True)
 # Show image using label 
 
 
-label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator")
+label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator",font=fontssss)
 label.pack(pady=12,padx=10)
 
-button = customtkinter.CTkButton(master=frame, text="Generate", command=log)
+button = customtkinter.CTkButton(master=frame, text="Generate", command=log,font=fontssss)
 button.pack(pady=12,padx=10)
 
-check = customtkinter.CTkCheckBox(master=frame,text="Print QR")
+check = customtkinter.CTkCheckBox(master=frame,text="Print QR",font=fontssss)
 check.pack(pady=6,padx=10)
-check1 = customtkinter.CTkCheckBox(master=frame,text="Show QR Image")
+check1 = customtkinter.CTkCheckBox(master=frame,text="Show QR Image",font=fontssss)
 check1.pack(pady=6,padx=10)
 
 
-label1 = customtkinter.CTkLabel(master=frame, text="Quality")
+label1 = customtkinter.CTkLabel(master=frame, text="Quality",font=fontssss)
 label1.pack(pady=0,padx=10)
 
 
 slider = customtkinter.CTkSlider(master=frame,from_=10,to=100)
 slider.pack(pady=12,padx=10)
 
-label1s = customtkinter.CTkLabel(master=frame, text="",text_color="green")
+label1s = customtkinter.CTkLabel(master=frame, text="",text_color="green",font=fontssss)
 label1s.pack(pady=0,padx=10)
+
+label1sss = customtkinter.CTkLabel(master=frame, text="",text_color="green",image="",font=fontssss)
+label1sss.pack(pady=10,padx=10)
 
 if language == "tr_TR":
    label.configure(text="WIFI QR Oluşturucu")
