@@ -26,13 +26,13 @@ customtkinter.set_default_color_theme("green")
 
 
 rot = customtkinter.CTk()
-rot.geometry("400x300")
+rot.geometry("350x300")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
 
 fontssss = customtkinter.CTkFont(family='ubuntu-medium.ttf', size=16)
-language = "en_gb"
+language = locale.getdefaultlocale()[0]
 
 my_img = ")"
 
