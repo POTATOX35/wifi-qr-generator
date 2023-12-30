@@ -16,7 +16,7 @@ Just click the button. Your QR code is ready !
 
 
   
-![In app image](https://i.ibb.co/pjTX9RW/o.png)
+![In app image](https://github.com/POTATOX35/wifi-qr-generator/blob/main/screenshot.png?)
 
 Example output file:
 
