@@ -26,13 +26,13 @@ customtkinter.set_default_color_theme("green")
 
 
 rot = customtkinter.CTk()
-rot.geometry("300x300")
+rot.geometry("400x300")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
 
 fontssss = customtkinter.CTkFont(family='ubuntu-medium.ttf', size=16)
-language = locale.getdefaultlocale()[0]
+language = "en_gb"
 
 my_img = ")"
 
@@ -156,10 +156,10 @@ def log():
       my_img=CTkImage(dark_image=Image.open(tempdir),size=(250,250))
       label1sss.configure(image=my_img)
       label1sss.pack_configure(side="bottom")
-      rot.geometry("300x600")
+      rot.geometry("350x600")
     else:
       label1sss.configure(image="")   
-      rot.geometry("300x300")
+      rot.geometry("350x300")
     
     rot.mainloop()  
 
