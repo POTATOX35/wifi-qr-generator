@@ -1,19 +1,15 @@
 
 # WIFI QR Generator
 
-Just click the button. Your QR code is ready !
+Just click the button. It will detect your connected wifi and your QR code is ready !
 
 
 
 ## Details
 
-- It doesnt contain case sensivity
 - It saves QR image file with high quality for prints
 - It has a simple ui and there is no any advertisement
 - Its totally free to use
-
-
-
 
   
 ![In app image](https://github.com/POTATOX35/wifi-qr-generator/blob/main/screenshot.png?)
