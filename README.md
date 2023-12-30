@@ -20,7 +20,7 @@ Just click the button. Your QR code is ready !
 
 Example output file:
 
-![Output](https://github.com/POTATOX35/wifi-qr-generator/blob/main/example.png? | width=100)
+![Output](https://github.com/POTATOX35/wifi-qr-generator/blob/main/example.png?)
 
 ## Change Log
 
