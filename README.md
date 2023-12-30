@@ -27,5 +27,7 @@ Example output file:
 # v0.85
 - Text scale bug fixed
 - Now you must'nt type wifi name. Its detecting auto your wifi connected
-
+# v0.90
+- Added show image option
+- Added English/Turkish language support
   
