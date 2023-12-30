@@ -26,7 +26,7 @@ customtkinter.set_default_color_theme("green")
 
 
 rot = customtkinter.CTk()
-rot.geometry("350x300")
+rot.geometry("350x310")
 rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
