@@ -193,9 +193,21 @@ if language == "tr_TR":
    check.configure(text="Yazdır")
    check1.configure(text="QR'ı Göster")
    label1.configure(text="Görsel Kalitesi")
-   my_text="QR görseliniz başarıyla kaydedildi"
+   my_text="QR görseliniz başarıyla kaydedildi !"
    saveas ="Farklı kaydet"
    imgtext = "WIFI Adı: "
    imgptext = "Şifre: "
+elif language == "en" or language == "en_us" or language == "en_gb" or language == "en_tt" or language == "en_za" or language == "en_nz" or language == "en_jm" or language == "en_ie" or language == "en_ca" or language == "en_au" or language == "en_bz":
+   label.configure(text="WIFI QR Generator")
+   button.configure(text="Generate")
+   check.configure(text="Print QR")
+   check1.configure(text="Show QR")
+   label1.configure(text="Image Quality")
+   my_text="Your QR image has saved successfully !"
+   saveas ="Save as"
+   imgtext = "WIFI Name: "
+   imgptext = "Password: "
+
+
 
 rot.mainloop()
