@@ -11,6 +11,7 @@ from PIL import Image, ImageFont, ImageDraw
 import packaging
 import tkinter
 import customtkinter
+import locale
 
 
 
@@ -30,10 +31,16 @@ rot.title("WIFI QR Generator by Potatox")
 rot.iconbitmap('favicon.ico')
 rot.resizable(0,0)
 
+language = locale.getdefaultlocale()[0]
+
+
+
 
 network_name = ("Wifi adını yazın: ")
 my_text = "Your QR image has saved successfully !"
-
+saveas = "Save as"
+imgtext="WIFI Name: "
+imgptext="Password: "
 password = ""
 passwordss = ""
 ssid = ""
@@ -78,7 +85,7 @@ def log():
     root.withdraw() #use to hide tkinter window
 
     currdir = os.getcwd()
-    tempdir = filedialog.asksaveasfilename(parent=root, initialdir=currdir, title='Choose save path',defaultextension=".png",filetypes=(("PNG", "*.png"),("All Files", "*.*") ))
+    tempdir = filedialog.asksaveasfilename(parent=root, initialdir=currdir, title=saveas,defaultextension=".png",filetypes=(("PNG", "*.png"),("All Files", "*.*") ))
     
     esek="WIFI:S:SSID_NAME;H:true;T:WPA2;P:PASSWORD;;"
     qr =esek.replace("SSID_NAME", str(ssid))
@@ -102,10 +109,10 @@ def log():
     draw = ImageDraw.Draw(img)
     font_family = 'fonts.otf'
     
-    text = ("WIFI Name: " + str(ssid))
-    texts = ("Password: " + str(password))
-    a = 150/len(text)
-    asak = 150/len(texts)
+    text = (imgtext + str(ssid))
+    texts = (imgptext + str(password))
+    a = 125/len(text)
+    asak = 125/len(texts)
 
 
     font = ImageFont.truetype(r'fonts.otf', ((width/100)*a))
@@ -180,5 +187,15 @@ slider.pack(pady=12,padx=10)
 label1s = customtkinter.CTkLabel(master=frame, text="",text_color="green")
 label1s.pack(pady=0,padx=10)
 
+if language == "tr_TR":
+   label.configure(text="WIFI QR Oluşturucu")
+   button.configure(text="Oluştur")
+   check.configure(text="Yazdır")
+   check1.configure(text="QR'ı Göster")
+   label1.configure(text="Görsel Kalitesi")
+   my_text="QR görseliniz başarıyla kaydedildi"
+   saveas ="Farklı kaydet"
+   imgtext = "WIFI Adı: "
+   imgptext = "Şifre: "
 
 rot.mainloop()
