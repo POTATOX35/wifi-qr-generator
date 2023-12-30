@@ -34,7 +34,7 @@ rot.resizable(0,0)
 fontssss = customtkinter.CTkFont(family='ubuntu-medium.ttf', size=16)
 language = locale.getdefaultlocale()[0]
 
-my_img = CTkImage(dark_image=Image.open("example.png"),size=(250,250))
+my_img = ")"
 
 
 network_name = ("Wifi adını yazın: ")
