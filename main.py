@@ -159,10 +159,24 @@ def log():
     if check.get() == True:
       os.startfile(tempdir, "print")
     if check1.get() == True:
+     
+      rot.geometry("350x350")
+      time.sleep(1)
+      rot.geometry("350x400")
+      time.sleep(1)
+      rot.geometry("350x450")
+      time.sleep(1)
+      rot.geometry("350x500")
+      time.sleep(1)
+      rot.geometry("350x550")
+      time.sleep(1)
+      rot.geometry("350x600")
+      
+      
+      
       my_img=CTkImage(dark_image=Image.open(tempdir),size=(250,250))
       label1sss.configure(image=my_img)
       label1sss.pack_configure(side="bottom")
-      rot.geometry("350x600")
     else:
       label1sss.configure(image="")   
       rot.geometry("350x300")
