@@ -160,16 +160,6 @@ def log():
       os.startfile(tempdir, "print")
     if check1.get() == True:
      
-      rot.geometry("350x350")
-      time.sleep(1)
-      rot.geometry("350x400")
-      time.sleep(1)
-      rot.geometry("350x450")
-      time.sleep(1)
-      rot.geometry("350x500")
-      time.sleep(1)
-      rot.geometry("350x550")
-      time.sleep(1)
       rot.geometry("350x600")
       
       
@@ -182,7 +172,10 @@ def log():
       rot.geometry("350x300")
     
     rot.mainloop()  
-
+def showclose():
+   if check1.get() == False:
+      label1sss.configure(image="")   
+      rot.geometry("350x300")
 
 
 
@@ -202,7 +195,7 @@ button.pack(pady=12,padx=10)
 
 check = customtkinter.CTkCheckBox(master=frame,text="Print QR",font=fontssss)
 check.pack(pady=6,padx=10)
-check1 = customtkinter.CTkCheckBox(master=frame,text="Show QR Image",font=fontssss)
+check1 = customtkinter.CTkCheckBox(master=frame,text="Show QR Image",font=fontssss,command=showclose)
 check1.pack(pady=6,padx=10)
 
 
