@@ -37,7 +37,7 @@ def close():
 
 rot.protocol("WM_DELETE_WINDOW", close)
 
-fontssss = customtkinter.CTkFont(family='ubuntu-medium.ttf', size=16)
+fontssss = customtkinter.CTkFont(family='fontui.ttf', size=16)
 language = locale.getdefaultlocale()[0]
 
 my_img = ")"
@@ -114,7 +114,7 @@ def log():
     type(img)  # qrcode.image.pil.PilImage
     width, height = img.size 
     draw = ImageDraw.Draw(img)
-    font_family = 'fonts.otf'
+    font_family = 'fontimage.otf'
     
     text = (imgtext + str(ssid))
     texts = (imgptext + str(password))
@@ -122,8 +122,8 @@ def log():
     asak = 125/len(texts)
 
 
-    font = ImageFont.truetype(r'fonts.otf', ((width/100)*a))
-    fonts = ImageFont.truetype(r'fonts.otf', ((width/100)*asak))
+    font = ImageFont.truetype(r'fontimage.otf', ((width/100)*a))
+    fonts = ImageFont.truetype(r'fontimage.otf', ((width/100)*asak))
     
     textwidth = draw.textlength(text, font=font)
     textwidths = draw.textlength(texts, font=fonts)
@@ -169,13 +169,13 @@ def log():
       label1sss.pack_configure(side="bottom")
     else:
       label1sss.configure(image="")   
-      rot.geometry("350x300")
+      rot.geometry("350x310")
     
     rot.mainloop()  
 def showclose():
    if check1.get() == False:
       label1sss.configure(image="")   
-      rot.geometry("350x300")
+      rot.geometry("350x310")
 
 
 
