@@ -1,7 +1,7 @@
 import qrcode
 import subprocess
 from win10toast import ToastNotifier
-
+import warnings
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import *
@@ -23,6 +23,7 @@ customtkinter.set_default_color_theme("green")
 
 
 
+warnings.simplefilter("ignore")
 
 
 rot = customtkinter.CTk()
