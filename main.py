@@ -92,7 +92,7 @@ def getnet():
 
       currdir = os.getcwd()
       tempdir = filedialog.asksaveasfilename(parent=root, initialdir=currdir, title=saveas,defaultextension=".png",filetypes=(("PNG", "*.png"),("All Files", "*.*") ))
-      print("Onebe",tempdir,"dasasd")
+      
       log()
    elif durum == "disconnected":   
       label1s.configure(text=my_fail_text,text_color="darkgoldenrod1")
@@ -108,12 +108,11 @@ def log():
 
  global currdir
  global tempdir
- print("Onebe",tempdir,"dasasd")
- print(len(tempdir))
+ 
  if tempdir == "":
     label1s.configure(text=my_failfile_text,text_color="darkgoldenrod1")
  if tempdir != "":
-    print("dsasdds")
+    
 
 
     
