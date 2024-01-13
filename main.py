@@ -15,7 +15,7 @@ import customtkinter
 import locale
 
 
-customtkinter.set_appearance_mode("light")
+customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("green")
 
 
@@ -45,6 +45,8 @@ my_img = ")"
 
 network_name = ("Wifi adını yazın: ")
 my_text = "Your QR image has saved successfully !"
+my_fail_text = "You don't have any connection on wifi"
+my_failfile_text = "Please select directory"
 saveas = "Save as"
 imgtext="WIFI Name: "
 imgptext="Password: "
@@ -53,35 +55,65 @@ passwordss = ""
 ssid = ""
 file_name = ""
 file_name_path = "/"
+currdir = ""
+tempdir = ""
 
 
+checksss=False
 def getnet():
    resultss = subprocess.run(['netsh', 'wlan', 'show', 'interface', 'key=clear'], stdout=subprocess.PIPE)
    outputsads = resultss.stdout.decode()
-
-
+   durum = False
+   global currdir
+   global tempdir
    for line in outputsads.split('\r\n'):
          if "Profile" in line:
             
             passwordss = line.split(":")[1].strip()
-    
+            checksss = True
+         elif "State" in line:
+            durum = line.split(":")[1].strip()
    
-   result = subprocess.run(['netsh', 'wlan', 'show', 'profile', passwordss, 'key=clear'], stdout=subprocess.PIPE)
-   output = result.stdout.decode()
+   if durum == "connected":
+      result = subprocess.run(['netsh', 'wlan', 'show', 'profile', passwordss, 'key=clear'], stdout=subprocess.PIPE)
+      output = result.stdout.decode()
    
-   for line in output.split('\n'):
-      if "Key Content" in line:
-        password = line.split(":")[1].strip()
-      elif "Name" in line:
-        ssid = line.split(":")[1].strip()
+      for line in output.split('\n'):
+        if "Key Content" in line:
+          global password
+          password = line.split(":")[1].strip()
+        elif "Name" in line:
+          global ssid
+          ssid = line.split(":")[1].strip()
+   
+   
+      root = tk.Tk()
+      root.withdraw() #use to hide tkinter window
+
+      currdir = os.getcwd()
+      tempdir = filedialog.asksaveasfilename(parent=root, initialdir=currdir, title=saveas,defaultextension=".png",filetypes=(("PNG", "*.png"),("All Files", "*.*") ))
+      print("Onebe",tempdir,"dasasd")
+      log()
+   elif durum == "disconnected":   
+      label1s.configure(text=my_fail_text,text_color="darkgoldenrod1")
+      
+      
+
+
 def log():
     
-    slidevalue = slider.get()
-    
-    
-    print(file_name)
-   
-   
+ slidevalue = slider.get()
+ global ssid
+ global password
+
+ global currdir
+ global tempdir
+ print("Onebe",tempdir,"dasasd")
+ print(len(tempdir))
+ if tempdir == "":
+    label1s.configure(text=my_failfile_text,text_color="darkgoldenrod1")
+ if tempdir != "":
+    print("dsasdds")
 
 
     
@@ -89,11 +121,7 @@ def log():
 
 
 
-    root = tk.Tk()
-    root.withdraw() #use to hide tkinter window
-
-    currdir = os.getcwd()
-    tempdir = filedialog.asksaveasfilename(parent=root, initialdir=currdir, title=saveas,defaultextension=".png",filetypes=(("PNG", "*.png"),("All Files", "*.*") ))
+    
     
     esek="WIFI:S:SSID_NAME;H:true;T:WPA2;P:PASSWORD;;"
     qr =esek.replace("SSID_NAME", str(ssid))
@@ -147,7 +175,7 @@ def log():
     eks = e.replace('/', '\\')
     
     
-    label1s.configure(text=my_text)
+    label1s.configure(text=my_text,text_color="green")
     
   
  
@@ -191,7 +219,7 @@ frame.pack(pady=20, padx=20, fill="both", expand=True)
 label = customtkinter.CTkLabel(master=frame, text="WIFI QR Generator",font=fontssss)
 label.pack(pady=12,padx=10)
 
-button = customtkinter.CTkButton(master=frame, text="Generate", command=log,font=fontssss)
+button = customtkinter.CTkButton(master=frame, text="Generate", command=getnet,font=fontssss)
 button.pack(pady=12,padx=10)
 
 check = customtkinter.CTkCheckBox(master=frame,text="Print QR",font=fontssss)
@@ -220,6 +248,8 @@ if language == "tr_TR":
    check1.configure(text="QR'ı Göster")
    label1.configure(text="Görsel Kalitesi")
    my_text="QR görseliniz başarıyla kaydedildi !"
+   my_fail_text = "Şu anda bir wifi ağına bağlı değilsiniz"
+   my_failfile_text = "Lütfen dosya dizinini seçiniz"
    saveas ="Farklı kaydet"
    imgtext = "WIFI Adı: "
    imgptext = "Şifre: "
@@ -230,6 +260,8 @@ elif language == "en" or language == "en_us" or language == "en_gb" or language 
    check1.configure(text="Show QR")
    label1.configure(text="Image Quality")
    my_text="Your QR image has saved successfully !"
+   my_fail_text = "You don't have any connection on wifi"
+   my_failfile_text = "Please select file directory"
    saveas ="Save as"
    imgtext = "WIFI Name: "
    imgptext = "Password: "
