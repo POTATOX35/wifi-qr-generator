@@ -34,7 +34,7 @@ rot.resizable(0,0)
 
 
 def close():
-   rot.destroy()
+   rot.quit()
 
 rot.protocol("WM_DELETE_WINDOW", close)
 
@@ -205,7 +205,7 @@ def showclose():
    if check1.get() == False:
       label1sss.configure(image="")   
       rot.geometry("350x310")
-
+      label1s.configure(text="")
 
 
 frame = customtkinter.CTkFrame(master=rot)
