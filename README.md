@@ -26,4 +26,10 @@ Example output file:
 # v0.90
 - Added show image option
 - Added English/Turkish language support
+# v1.00
+- Fixed non-selected directory bug
+- Fixed disconnected wifi bug
+- Added release with exe file
+    
+  
   
