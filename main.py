@@ -97,7 +97,7 @@ def getnet():
       log()
    elif durum == "disconnected":   
       label1s.configure(text=my_fail_text,text_color="darkgoldenrod1")
-      
+
       
 
 
