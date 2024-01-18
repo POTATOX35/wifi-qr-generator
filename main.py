@@ -1,6 +1,6 @@
 import qrcode
 import subprocess
-from win10toast import ToastNotifier
+
 import warnings
 import tkinter as tk
 from tkinter import filedialog
