@@ -156,11 +156,17 @@ def log():
     
     textwidth = draw.textlength(text, font=font)
     textwidths = draw.textlength(texts, font=fonts)
+    
+    ascent, descent = font.getmetrics()
 
+   
+    text_height = font.getmask(text).getbbox()[3] + descent
+    text_heights = font.getmask(texts).getbbox()[3] + descent
+    print(text_height,textwidth)
     x=width/2-textwidth/2
     xx=width/2-textwidths/2
-    y = 0+((width/100)*3)
-    yy=width - ((width/100)*7)
+    y = (height/10)/2 - text_height/2
+    yy= (height*0.9)+((height/10)/2 - text_height/2)
     
 
     draw.text((x, y), text, font=font, fill='black')
